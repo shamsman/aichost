@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'AICHost — AI Cloud Hosting & Google VM with CWP')
+@section('title', 'AI Cloud Host — Cloud Hosting & Google VM with CWP')
 
 @section('content')
 <!-- Hero Section -->

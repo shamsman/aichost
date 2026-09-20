@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Client Portal — AICHost')
+@section('title', 'Client Portal — AI Cloud Host')
 
 @section('content')
 <div class="container" style="padding-top: 32px; padding-bottom: 80px;">

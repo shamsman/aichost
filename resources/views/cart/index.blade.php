@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Shopping Cart — AICHost')
+@section('title', 'Shopping Cart — AI Cloud Host')
 
 @section('content')
 <div class="container" style="padding-top: 40px; padding-bottom: 80px; max-width: 900px;">

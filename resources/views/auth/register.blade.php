@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Create Client Account — AICHost')
+@section('title', 'Create Client Account — AI Cloud Host')
 
 @section('content')
 <div class="container" style="padding-top: 60px; padding-bottom: 100px; max-width: 520px;">

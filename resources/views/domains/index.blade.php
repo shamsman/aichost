@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Domain Registration & Transfer — AICHost')
+@section('title', 'Domain Registration & Transfer — AI Cloud Host')
 
 @section('content')
 <div class="container" style="padding-top: 40px; padding-bottom: 80px;">

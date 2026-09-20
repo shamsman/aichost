@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'CWP Shared Web Hosting on Google Cloud — AICHost')
+@section('title', 'CWP Shared Web Hosting on Google Cloud — AI Cloud Host')
 
 @section('content')
 <div class="container" style="padding-top: 40px; padding-bottom: 80px;">

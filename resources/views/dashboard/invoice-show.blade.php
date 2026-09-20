@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Invoice ' . $invoice->invoice_number . ' — AICHost')
+@section('title', 'Invoice ' . $invoice->invoice_number . ' — AI Cloud Host')
 
 @section('content')
 <div class="container" style="padding-top: 40px; padding-bottom: 80px; max-width: 800px;">
