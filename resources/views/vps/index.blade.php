@@ -16,8 +16,8 @@
     </div>
 
     <!-- Interactive Hardware Configurator Slider Box -->
-    <div class="glass-panel" style="max-width: 900px; margin: 0 auto 60px; padding: 40px; border-color: rgba(99, 102, 241, 0.3);">
-        <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 8px; color: #fff;">Interactive VPS Hardware Configurator</h3>
+    <div class="glass-panel" style="max-width: 900px; margin: 0 auto 60px; padding: 40px; border-color: rgba(79, 70, 229, 0.25);">
+        <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 8px; color: var(--text-main);">Interactive VPS Hardware Configurator</h3>
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 30px;">
             Customize your Google Cloud virtual machine. Our provisioning service will generate the configuration and launch the instance with CWP automated startup.
         </p>
@@ -63,14 +63,14 @@
             </div>
 
             <!-- Price Output & Deploy -->
-            <div style="background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 28px; text-align: center;">
+            <div style="background: var(--surface-hover); border: 1px solid var(--card-border); border-radius: 16px; padding: 28px; text-align: center;">
                 <div style="color: var(--text-muted); font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Estimated Cost</div>
-                <div style="font-size: 44px; font-weight: 800; color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px;" id="totalPrice">
+                <div style="font-size: 44px; font-weight: 800; color: var(--text-main); font-family: 'Space Grotesk', sans-serif; margin-bottom: 4px;" id="totalPrice">
                     $28.00
                 </div>
                 <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">/month • billed monthly</div>
 
-                <div style="font-size: 12px; color: #34d399; margin-bottom: 20px; background: rgba(16, 185, 129, 0.1); padding: 8px; border-radius: 8px;">
+                <div style="font-size: 12px; color: var(--accent-emerald); margin-bottom: 20px; background: rgba(5, 150, 105, 0.1); padding: 8px; border-radius: 8px; font-weight: 600;">
                     ✓ CWP Included & Ready
                 </div>
 
@@ -88,14 +88,14 @@
     </div>
 
     <!-- VPS Standard Tiers Comparison -->
-    <h3 style="font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 36px;">Pre-Configured Google Cloud Instances</h3>
+    <h3 style="font-size: 26px; font-weight: 800; text-align: center; margin-bottom: 36px; color: var(--text-main);">Pre-Configured Google Cloud Instances</h3>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; max-width: 1100px; margin: 0 auto;">
         @foreach($vpsPlans as $plan)
             <div class="glass-panel" style="padding: 36px; position: relative;">
                 <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: flex-start;">
                     <div>
                         <span class="badge-ai" style="font-size: 10px;">{{ $plan->specs['badge'] ?? 'Standard' }}</span>
-                        <h4 style="font-size: 20px; font-weight: 700; color: #fff; margin-top: 6px;">{{ $plan->name }}</h4>
+                        <h4 style="font-size: 20px; font-weight: 700; color: var(--text-main); margin-top: 6px;">{{ $plan->name }}</h4>
                     </div>
                 </div>
 
@@ -106,7 +106,7 @@
                     <span style="color: var(--text-muted); font-size: 14px;">/month</span>
                 </div>
 
-                <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 16px; margin-bottom: 24px; font-size: 13px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <div style="background: var(--surface-hover); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; margin-bottom: 24px; font-size: 13px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                     <div><strong>vCPU:</strong> {{ $plan->specs['vcpu'] }} vCPUs</div>
                     <div><strong>RAM:</strong> {{ $plan->specs['ram'] }}</div>
                     <div><strong>NVMe:</strong> {{ $plan->specs['disk'] }}</div>
@@ -117,7 +117,7 @@
                     @foreach($plan->specs['features'] ?? [] as $feat)
                         <li style="display: flex; align-items: center; gap: 8px;">
                             <span style="color: var(--accent-cyan);">✓</span>
-                            <span style="color: #ffffff;">{{ $feat }}</span>
+                            <span style="color: var(--text-main);">{{ $feat }}</span>
                         </li>
                     @endforeach
                 </ul>

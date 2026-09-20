@@ -1,20 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
-# Google Cloud Run injects $PORT (defaults to 8080)
-PORT="${PORT:-8080}"
-echo "AICHost Cloud Run starting on port ${PORT}..."
+# Ensure storage directories exist
+mkdir -p /var/www/html/storage/framework/sessions \
+         /var/www/html/storage/framework/views \
+         /var/www/html/storage/framework/cache \
+         /var/www/html/bootstrap/cache
 
-# Replace port placeholder in Apache config
-sed -i "s/\${PORT}/${PORT}/g" /etc/apache2/sites-available/000-default.conf
-sed -i "s/Listen 80/Listen ${PORT}/" /etc/apache2/ports.conf 2>/dev/null || true
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-# Cache Laravel configurations if in production
-if [ "${APP_ENV:-production}" = "production" ]; then
-    php artisan config:cache || true
-    php artisan route:cache || true
-    php artisan view:cache || true
-fi
-
-# Hand over execution to Apache foreground process
 exec apache2-foreground

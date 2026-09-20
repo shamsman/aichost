@@ -12,10 +12,10 @@
             <div style="display: flex; flex-direction: column; gap: 24px;">
                 <!-- Account Info -->
                 <div class="glass-panel" style="padding: 28px;">
-                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 18px; color: #fff;">1. Customer Information</h3>
+                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 18px; color: var(--text-main);">1. Customer Information</h3>
 
                     @auth
-                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.25); padding: 14px 18px; border-radius: 10px; font-size: 14px; color: #34d399;">
+                        <div style="background: rgba(5, 150, 105, 0.08); border: 1px solid rgba(5, 150, 105, 0.25); padding: 14px 18px; border-radius: 10px; font-size: 14px; color: var(--accent-emerald);">
                             Logged in as <strong>{{ auth()->user()->name }}</strong> ({{ auth()->user()->email }}). Services will be provisioned directly to your account.
                         </div>
                     @else
@@ -38,19 +38,19 @@
 
                 <!-- Payment Selection -->
                 <div class="glass-panel" style="padding: 28px;">
-                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 18px; color: #fff;">2. Payment Method</h3>
+                    <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 18px; color: var(--text-main);">2. Payment Method</h3>
                     <div style="display: flex; flex-direction: column; gap: 12px;">
-                        <label style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: rgba(0,0,0,0.3); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 10px; cursor: pointer;">
+                        <label style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--surface-hover); border: 1px solid var(--primary-light); border-radius: 10px; cursor: pointer;">
                             <input type="radio" name="payment_method" value="credit_card" checked style="accent-color: var(--primary);">
                             <div>
-                                <div style="font-weight: 700; color: #fff; font-size: 14px;">Instant Credit Card / Google Pay</div>
+                                <div style="font-weight: 700; color: var(--text-main); font-size: 14px;">Instant Credit Card / Google Pay</div>
                                 <div style="font-size: 12px; color: var(--text-muted);">Zero latency automated provisioning via Google Cloud Run worker</div>
                             </div>
                         </label>
-                        <label style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; cursor: pointer;">
+                        <label style="display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--surface-hover); border: 1px solid var(--card-border); border-radius: 10px; cursor: pointer;">
                             <input type="radio" name="payment_method" value="account_balance" style="accent-color: var(--primary);">
                             <div>
-                                <div style="font-weight: 700; color: #fff; font-size: 14px;">Account Credits / Pre-Paid Balance</div>
+                                <div style="font-weight: 700; color: var(--text-main); font-size: 14px;">Account Credits / Pre-Paid Balance</div>
                                 <div style="font-size: 12px; color: var(--text-muted);">Current Balance: ${{ number_format(auth()->user()->balance ?? 0, 2) }}</div>
                             </div>
                         </label>
@@ -60,17 +60,17 @@
 
             <!-- Order Summary Sidebar -->
             <div class="glass-panel" style="padding: 28px;">
-                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Order Summary</h3>
+                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: var(--text-main);">Order Summary</h3>
                 <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px;">
                     @foreach($cart as $item)
                         <div style="display: flex; justify-content: space-between; font-size: 13px;">
                             <span style="color: var(--text-muted);">{{ Str::limit($item['name'], 24) }}:</span>
-                            <strong style="color: #fff;">${{ number_format($item['price'], 2) }}</strong>
+                            <strong style="color: var(--text-main);">${{ number_format($item['price'], 2) }}</strong>
                         </div>
                     @endforeach
                 </div>
 
-                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 14px; margin-bottom: 20px;">
+                <div style="border-top: 1px solid var(--card-border); padding-top: 14px; margin-bottom: 20px;">
                     <div style="display: flex; justify-content: space-between; font-size: 16px; font-weight: 700;">
                         <span>Total Due:</span>
                         <span style="color: var(--accent-cyan); font-size: 24px; font-family: 'Space Grotesk', sans-serif;">${{ number_format($total, 2) }}</span>

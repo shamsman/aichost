@@ -30,12 +30,12 @@
 
     <!-- TLD Pricing Table -->
     <div class="glass-panel" style="padding: 36px; max-width: 960px; margin: 0 auto;">
-        <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 24px; color: #ffffff;">Popular Domain Extensions (TLDs)</h3>
+        <h3 style="font-size: 22px; font-weight: 700; margin-bottom: 24px; color: var(--text-main);">Popular Domain Extensions (TLDs)</h3>
 
         <div style="overflow-x: auto;">
             <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 14px;">
                 <thead>
-                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted);">
+                    <tr style="border-bottom: 1px solid var(--card-border); color: var(--text-muted);">
                         <th style="padding: 14px 16px;">Extension</th>
                         <th style="padding: 14px 16px;">Ideal For</th>
                         <th style="padding: 14px 16px;">Register / 1st Year</th>
@@ -45,9 +45,9 @@
                 </thead>
                 <tbody>
                     @foreach($domainPlans as $plan)
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.2s;">
+                        <tr style="border-bottom: 1px solid var(--card-border); transition: background 0.2s;">
                             <td style="padding: 18px 16px;">
-                                <span style="font-size: 18px; font-weight: 800; color: #ffffff; font-family: 'Space Grotesk', sans-serif;">
+                                <span style="font-size: 18px; font-weight: 800; color: var(--text-main); font-family: 'Space Grotesk', sans-serif;">
                                     {{ $plan->specs['tld'] ?? '.com' }}
                                 </span>
                             </td>
@@ -104,15 +104,15 @@
             box.style.display = 'flex';
 
             if (data.available) {
-                box.style.background = 'rgba(16, 185, 129, 0.12)';
-                box.style.border = '1px solid rgba(16, 185, 129, 0.35)';
+                box.style.background = 'rgba(5, 150, 105, 0.08)';
+                box.style.border = '1px solid rgba(5, 150, 105, 0.3)';
                 box.innerHTML = `
                     <div>
-                        <div style="font-weight: 700; color: #34d399; font-size: 17px;">✓ <strong>${data.domain}</strong> is available for registration!</div>
+                        <div style="font-weight: 700; color: #059669; font-size: 17px;">✓ <strong>${data.domain}</strong> is available for registration!</div>
                         <div style="font-size: 13px; color: var(--text-muted);">Instant DNS provisioning via InternetBS API with WHOIS privacy protection.</div>
                     </div>
                     <div style="display: flex; align-items: center; gap: 16px;">
-                        <span style="font-size: 24px; font-weight: 800; color: #ffffff;">$${parseFloat(data.price).toFixed(2)}<span style="font-size: 13px; color: var(--text-muted);">/yr</span></span>
+                        <span style="font-size: 24px; font-weight: 800; color: var(--text-main);">$${parseFloat(data.price).toFixed(2)}<span style="font-size: 13px; color: var(--text-muted);">/yr</span></span>
                         <form method="POST" action="{{ route('cart.add') }}" style="margin: 0;">
                             @csrf
                             <input type="hidden" name="type" value="domain">
@@ -122,20 +122,20 @@
                     </div>
                 `;
             } else {
-                box.style.background = 'rgba(239, 68, 68, 0.12)';
-                box.style.border = '1px solid rgba(239, 68, 68, 0.35)';
+                box.style.background = 'rgba(239, 68, 68, 0.08)';
+                box.style.border = '1px solid rgba(239, 68, 68, 0.3)';
                 box.innerHTML = `
                     <div>
-                        <div style="font-weight: 700; color: #f87171; font-size: 17px;">✗ <strong>${data.domain}</strong> is taken.</div>
+                        <div style="font-weight: 700; color: #dc2626; font-size: 17px;">✗ <strong>${data.domain}</strong> is taken.</div>
                         <div style="font-size: 13px; color: var(--text-muted);">${data.reason || 'Try a different variation or choose an alternative extension.'}</div>
                     </div>
                 `;
             }
         } catch (err) {
             box.style.display = 'flex';
-            box.style.background = 'rgba(239, 68, 68, 0.12)';
-            box.style.border = '1px solid rgba(239, 68, 68, 0.3)';
-            box.innerHTML = `<div style="color: #f87171;">Failed to connect to registrar service. Please try again.</div>`;
+            box.style.background = 'rgba(239, 68, 68, 0.08)';
+            box.style.border = '1px solid rgba(239, 68, 68, 0.25)';
+            box.innerHTML = `<div style="color: #dc2626;">Failed to connect to registrar service. Please try again.</div>`;
         } finally {
             btnText.style.display = 'inline';
             btnSpinner.style.display = 'none';

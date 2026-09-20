@@ -4,10 +4,10 @@
 
 @section('content')
 <div class="container" style="padding-top: 60px; padding-bottom: 100px; max-width: 520px;">
-    <div class="glass-panel" style="padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.6);">
+    <div class="glass-panel" style="padding: 40px; box-shadow: var(--shadow-card);">
         <div style="text-align: center; margin-bottom: 30px;">
             <div class="brand-icon" style="margin: 0 auto 16px; width: 48px; height: 48px; font-size: 24px;">⚡</div>
-            <h1 style="font-size: 24px; font-weight: 800; color: #fff;">Create Customer Account</h1>
+            <h1 style="font-size: 24px; font-weight: 800; color: var(--text-main);">Create Customer Account</h1>
             <p style="color: var(--text-muted); font-size: 14px; margin-top: 6px;">Get started on the next-gen AI Cloud Hosting platform</p>
         </div>
 

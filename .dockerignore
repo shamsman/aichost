@@ -1,0 +1,16 @@
+.git
+.github
+.vscode
+.claude
+vendor
+node_modules
+tests
+storage/logs/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+.env
+.env.*
+phpunit.xml
+README.md
+database/database.sqlite

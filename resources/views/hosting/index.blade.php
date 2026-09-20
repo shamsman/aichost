@@ -16,13 +16,13 @@
     </div>
 
     <!-- Active CWP Node Status Banner -->
-    <div class="glass-panel" style="max-width: 900px; margin: 0 auto 50px; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-color: rgba(6, 182, 212, 0.3);">
+    <div class="glass-panel" style="max-width: 900px; margin: 0 auto 50px; padding: 20px 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; border-color: rgba(2, 132, 199, 0.25);">
         <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(6, 182, 212, 0.15); display: flex; align-items: center; justify-content: center; font-size: 20px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(2, 132, 199, 0.12); display: flex; align-items: center; justify-content: center; font-size: 20px;">
                 🖥️
             </div>
             <div>
-                <div style="font-weight: 700; color: #ffffff; font-size: 15px;">Primary Production Server: srv.shamsman.com</div>
+                <div style="font-weight: 700; color: var(--text-main); font-size: 15px;">Primary Production Server: srv.shamsman.com</div>
                 <div style="font-size: 13px; color: var(--text-muted);">
                     Port: <strong>2031</strong> (SSL Admin/User Panel) • IP: <strong>{{ $cwpServer->ip_address ?? '185.193.64.1' }}</strong> • Region: <strong>us-central1</strong>
                 </div>
@@ -43,7 +43,7 @@
                     </div>
                 @endif
 
-                <h3 style="font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px;">{{ $plan->name }}</h3>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">{{ $plan->name }}</h3>
                 <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 24px;">{{ $plan->specs['badge'] ?? 'Shared Hosting' }}</p>
 
                 <div style="margin-bottom: 24px;">
@@ -53,7 +53,7 @@
                     <span style="color: var(--text-muted); font-size: 14px;">/month</span>
                 </div>
 
-                <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+                <div style="background: var(--surface-hover); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
                     <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 8px;">
                         <span style="color: var(--text-muted);">Storage:</span>
                         <strong>{{ $plan->specs['disk'] ?? '20 GB NVMe' }}</strong>
@@ -92,26 +92,26 @@
 
     <!-- CWP Feature Stack Highlights -->
     <div class="glass-panel" style="padding: 40px; max-width: 1100px; margin: 0 auto;">
-        <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 24px; text-align: center;">Standard Stack Included in All CWP Plans</h3>
+        <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 24px; text-align: center; color: var(--text-main);">Standard Stack Included in All CWP Plans</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; text-align: center;">
             <div>
                 <div style="font-size: 28px; margin-bottom: 10px;">🔒</div>
-                <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px;">Free AutoSSL</h4>
+                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Free AutoSSL</h4>
                 <p style="color: var(--text-muted); font-size: 13px;">Automated Let's Encrypt certificates provisioned on every domain.</p>
             </div>
             <div>
                 <div style="font-size: 28px; margin-bottom: 10px;">⚡</div>
-                <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px;">Nginx + Varnish Cache</h4>
+                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">Nginx + Varnish Cache</h4>
                 <p style="color: var(--text-muted); font-size: 13px;">Reverse proxy acceleration delivering sub-millisecond TTFB response times.</p>
             </div>
             <div>
                 <div style="font-size: 28px; margin-bottom: 10px;">🐘</div>
-                <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px;">PHP Multi-Version</h4>
+                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">PHP Multi-Version</h4>
                 <p style="color: var(--text-muted); font-size: 13px;">Switch between PHP 7.4, 8.1, 8.2, and 8.3 instantly per directory.</p>
             </div>
             <div>
                 <div style="font-size: 28px; margin-bottom: 10px;">💾</div>
-                <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px;">MariaDB 10.11</h4>
+                <h4 style="font-size: 16px; font-weight: 700; color: var(--text-main); margin-bottom: 6px;">MariaDB 10.11</h4>
                 <p style="color: var(--text-muted); font-size: 13px;">High-concurrency SQL database engines with phpMyAdmin management.</p>
             </div>
         </div>

@@ -1,35 +1,42 @@
-# Multi-stage production build for Google Cloud Run
-FROM composer:2 AS vendor
-WORKDIR /app
-COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
-COPY . .
-RUN composer dump-autoload --optimize
+FROM php:8.3-apache
 
-FROM php:8.3-apache AS app
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public \
-    PORT=8080
+# Install required system packages and PHP extensions for Laravel
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    zip \
+    unzip \
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-        libzip-dev libpng-dev libonig-dev libxml2-dev unzip git curl \
-    && docker-php-ext-install pdo_mysql mbstring zip bcmath gd opcache \
-    && a2enmod rewrite headers remoteip \
-    && rm -rf /var/lib/apt/lists/*
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Copy Apache virtualhost config
-COPY docker/apache-vhost.conf /etc/apache2/sites-available/000-default.conf
+# Cloud Run dynamic port configuration
+ENV PORT=8080
+RUN sed -i 's/Listen 80/Listen ${PORT}/g' /etc/apache2/ports.conf \
+    && a2enmod rewrite
 
-# Copy application files
-COPY --from=vendor /app /var/www/html
+# Copy custom Apache virtual host
+COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
+
 WORKDIR /var/www/html
 
-# Permissions
-RUN chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
+# Copy application files
+COPY . /var/www/html
 
-# Copy and setup entrypoint
-COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
+# Install Composer dependencies for production
+RUN composer install --no-dev --optimize-autoloader --no-interaction
+
+# Permissions
+RUN chmod +x /var/www/html/docker/entrypoint.sh \
+    && chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 8080
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+
+ENTRYPOINT ["/var/www/html/docker/entrypoint.sh"]

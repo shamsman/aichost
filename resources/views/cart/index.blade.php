@@ -20,13 +20,13 @@
     @else
         <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: flex-start;">
             <div class="glass-panel" style="padding: 24px;">
-                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px;">Order Items</h3>
+                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 20px; border-bottom: 1px solid var(--card-border); padding-bottom: 12px; color: var(--text-main);">Order Items</h3>
 
                 <div style="display: flex; flex-direction: column; gap: 16px;">
                     @foreach($cart as $item)
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px; background: var(--surface-hover); border: 1px solid var(--card-border); border-radius: 12px;">
                             <div>
-                                <div style="font-weight: 700; color: #fff; font-size: 15px;">{{ $item['name'] }}</div>
+                                <div style="font-weight: 700; color: var(--text-main); font-size: 15px;">{{ $item['name'] }}</div>
                                 <div style="color: var(--text-muted); font-size: 13px;">
                                     {{ ucfirst(str_replace('_', ' ', $item['type'])) }} • {{ ucfirst($item['billing_cycle'] ?? 'monthly') }}
                                     @if(!empty($item['domain_name']))
@@ -35,10 +35,10 @@
                                 </div>
                             </div>
                             <div style="display: flex; align-items: center; gap: 16px;">
-                                <span style="font-size: 18px; font-weight: 700; font-family: 'Space Grotesk', sans-serif;">
+                                <span style="font-size: 18px; font-weight: 700; font-family: 'Space Grotesk', sans-serif; color: var(--text-main);">
                                     ${{ number_format($item['price'], 2) }}
                                 </span>
-                                <a href="{{ route('cart.remove', $item['id']) }}" style="color: #f87171; text-decoration: none; font-size: 18px;" title="Remove Item">&times;</a>
+                                <a href="{{ route('cart.remove', $item['id']) }}" style="color: #ef4444; text-decoration: none; font-size: 18px;" title="Remove Item">&times;</a>
                             </div>
                         </div>
                     @endforeach
@@ -46,17 +46,17 @@
             </div>
 
             <div class="glass-panel" style="padding: 28px;">
-                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px;">Order Summary</h3>
+                <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; color: var(--text-main);">Order Summary</h3>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; color: var(--text-muted);">
                     <span>Subtotal:</span>
-                    <span style="color: #fff;">${{ number_format($subtotal, 2) }}</span>
+                    <span style="color: var(--text-main); font-weight: 600;">${{ number_format($subtotal, 2) }}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 14px; color: var(--text-muted);">
                     <span>Setup Fee / Taxes:</span>
-                    <span style="color: #34d399;">$0.00 (Free)</span>
+                    <span style="color: var(--accent-emerald); font-weight: 600;">$0.00 (Free)</span>
                 </div>
-                <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 700; font-size: 16px;">Total Due:</span>
+                <div style="border-top: 1px solid var(--card-border); padding-top: 16px; margin-bottom: 24px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 16px; color: var(--text-main);">Total Due:</span>
                     <span style="font-size: 26px; font-weight: 800; color: var(--accent-cyan); font-family: 'Space Grotesk', sans-serif;">${{ number_format($total, 2) }}</span>
                 </div>
 
