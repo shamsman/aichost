@@ -17,7 +17,7 @@
         </h1>
 
         <p style="font-size: clamp(16px, 2vw, 20px); color: var(--text-muted); max-width: 680px; margin: 0 auto 40px; line-height: 1.6;">
-            Deploy high-velocity websites on CWP shared hosting (<a href="https://srv.shamsman.com:2031/" target="_blank" style="color: var(--accent-cyan); text-decoration: underline;">srv.shamsman.com:2031</a>) or launch dedicated Google Cloud VMs pre-loaded with CWP and AI accelerators.
+            Deploy high-velocity websites on CWP shared hosting or launch dedicated Google Cloud VMs pre-loaded with CWP and AI accelerators.
         </p>
 
         <!-- Live Domain Search Bar (Connected to InternetBS API) -->
@@ -55,7 +55,7 @@
             <div class="glass-panel" style="padding: 24px; text-align: left;">
                 <div style="color: var(--primary); font-size: 24px; margin-bottom: 8px;">⚙️</div>
                 <div style="font-weight: 700; color: var(--text-main); font-size: 16px;">CWP Control Panel</div>
-                <div style="color: var(--text-muted); font-size: 13px;">Instant SSO at srv.shamsman.com:2031 with full MariaDB, SSL & PHP 8.3.</div>
+                <div style="color: var(--text-muted); font-size: 13px;">Instant SSO at srv.shamsman.com:2083 with full MariaDB, SSL & PHP 8.3.</div>
             </div>
             <div class="glass-panel" style="padding: 24px; text-align: left;">
                 <div style="color: var(--accent-purple); font-size: 24px; margin-bottom: 8px;">🌐</div>
@@ -97,7 +97,7 @@
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
                 <div>
                     <h3 style="font-size: 22px; font-weight: 700; color: var(--text-main);">1. Shared Hosting on CWP</h3>
-                    <p style="color: var(--text-muted); font-size: 14px;">Hosted on high-speed server cluster at <strong style="color: var(--accent-cyan);">srv.shamsman.com:2031</strong></p>
+                    <p style="color: var(--text-muted); font-size: 14px;">Hosted on high-speed server cluster at <strong style="color: var(--accent-cyan);">srv.shamsman.com:2083</strong></p>
                 </div>
                 <a href="{{ route('hosting.index') }}" class="btn btn-outline btn-sm">Compare All Shared Plans &rarr;</a>
             </div>
@@ -214,10 +214,10 @@
             <div>
                 <div class="badge-ai" style="margin-bottom: 16px;">Zero Complexity Panel</div>
                 <h2 style="font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; margin-bottom: 20px; color: var(--text-main);">
-                    CentOS Web Panel (CWP) Integrated at <span class="text-gradient-ai">srv.shamsman.com:2031</span>
+                    CentOS Web Panel (CWP) Integrated at <span class="text-gradient-ai">srv.shamsman.com:2083</span>
                 </h2>
                 <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 24px; line-height: 1.7;">
-                    Experience complete freedom with automated account creation, package synchronization, and one-click SSO login into CWP directly from your AICHost customer portal.
+                    Experience complete freedom with automated account creation, package synchronization, and one-click SSO login into CWP directly from your AI Cloud Host customer portal.
                 </p>
 
                 <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px;">
@@ -232,7 +232,7 @@
                         <div style="background: rgba(2, 132, 199, 0.12); color: var(--accent-cyan); width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
                         <div>
                             <strong style="color: var(--text-main);">Single Sign-On (SSO):</strong>
-                            <p style="color: var(--text-muted); font-size: 14px;">Access your CWP panel at <code>https://srv.shamsman.com:2031/</code> with 1 click without needing to retype passwords.</p>
+                            <p style="color: var(--text-muted); font-size: 14px;">Access your CWP panel at <code>https://srv.shamsman.com:2083/</code> with 1 click without needing to retype passwords.</p>
                         </div>
                     </div>
                     <div style="display: flex; gap: 14px; align-items: flex-start;">
@@ -259,13 +259,13 @@
                 </div>
                 <div style="font-family: monospace; font-size: 13px; line-height: 1.7; color: #93c5fd;">
                     <p style="color: #34d399;">$ aichost provision --service=cwp-starter --domain=myproject.ai</p>
-                    <p style="color: #94a3b8;">[22:30:12] Contacting CWP Node at https://srv.shamsman.com:2031/api/ ...</p>
+                    <p style="color: #94a3b8;">[22:30:12] Contacting CWP Node at https://srv.shamsman.com:2083/api/ ...</p>
                     <p style="color: #60a5fa;">[22:30:13] Hostname verified: srv.shamsman.com [185.193.64.1]</p>
                     <p style="color: #60a5fa;">[22:30:14] Generating user 'u849204' with 20GB NVMe storage...</p>
                     <p style="color: #34d399;">[22:30:15] CWP Account created successfully (Account ID: 4192)</p>
                     <p style="color: #a78bfa;">[22:30:15] Configuring DNS on InternetBS Reseller API...</p>
                     <p style="color: #34d399;">[22:30:16] Nameservers set: ns1.aichost.com, ns2.aichost.com</p>
-                    <p style="color: #38bdf8;">[22:30:17] One-click SSO link ready: https://srv.shamsman.com:2031/cpanel/?session=active</p>
+                    <p style="color: #38bdf8;">[22:30:17] One-click SSO link ready: https://srv.shamsman.com:2083/cpanel/?session=active</p>
                     <p style="color: #10b981; font-weight: bold; margin-top: 8px;">✓ Service fully active on Google Cloud infrastructure.</p>
                 </div>
             </div>
@@ -292,7 +292,7 @@
             <div class="glass-panel" style="padding: 24px;">
                 <h4 style="font-size: 17px; font-weight: 700; color: var(--text-main); margin-bottom: 8px;">Where is the CWP control panel located?</h4>
                 <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">
-                    Our primary CentOS Web Panel server is hosted at <a href="https://srv.shamsman.com:2031/" target="_blank" style="color: var(--accent-cyan); text-decoration: underline;">https://srv.shamsman.com:2031/</a>. You can manage files, databases, mailboxes, and SSL directly through CWP or using our 1-click SSO button inside your AICHost dashboard.
+                    Our primary CentOS Web Panel server is hosted at <a href="https://srv.shamsman.com:2083/" target="_blank" style="color: var(--accent-cyan); text-decoration: underline;">https://srv.shamsman.com:2083/</a>. You can manage files, databases, mailboxes, and SSL directly through CWP or using our 1-click SSO button inside your AI Cloud Host dashboard.
                 </p>
             </div>
 

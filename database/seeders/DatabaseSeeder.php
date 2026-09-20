@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
                 'provider'             => 'cwp',
                 'hostname'             => 'srv.shamsman.com',
                 'ip_address'           => env('CWP_SERVER_IP', '185.193.64.1'),
-                'api_url'              => env('CWP_API_URL', 'https://srv.shamsman.com:2031/api/'),
+                'api_url'              => env('CWP_API_URL', 'https://srv.shamsman.com:2083/api/'),
                 'api_key_encrypted'    => env('CWP_API_KEY', 'demo_cwp_api_key'),
                 'api_secret_encrypted' => env('CWP_API_SECRET', 'demo_cwp_secret'),
                 'region'               => env('CWP_SERVER_REGION', 'us-central1'),

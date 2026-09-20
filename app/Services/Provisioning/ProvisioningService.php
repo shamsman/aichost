@@ -112,7 +112,7 @@ class ProvisioningService
         );
 
         $serverIp = $server?->ip_address ?? '185.193.64.1';
-        $cwpLogin = $result->loginUrl ?: "https://srv.shamsman.com:2031/cpanel/?user={$username}";
+        $cwpLogin = $result->loginUrl ?: "https://srv.shamsman.com:2083/cpanel/?user={$username}";
 
         $hostingAccount = HostingAccount::create([
             'user_id'        => $user->id,
@@ -128,7 +128,7 @@ class ProvisioningService
             'provisioned_at' => now(),
             'meta'           => [
                 'server_hostname' => $server?->hostname ?? 'srv.shamsman.com',
-                'cwp_url'         => 'https://srv.shamsman.com:2031/',
+                'cwp_url'         => 'https://srv.shamsman.com:2083/',
                 'cwp_password'    => $password,
             ],
         ]);
@@ -156,7 +156,7 @@ class ProvisioningService
         $result = $this->cloudCompute->createInstance($spec);
 
         $ip = $result->publicIp ?: '34.124.' . rand(10, 254) . '.' . rand(10, 254);
-        $cwpUrl = "https://{$ip}:2031/";
+        $cwpUrl = "https://{$ip}:2083/";
 
         $vps = VpsInstance::create([
             'user_id'        => $user->id,

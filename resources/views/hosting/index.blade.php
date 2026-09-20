@@ -6,7 +6,7 @@
 <div class="container" style="padding-top: 40px; padding-bottom: 80px;">
     <!-- Header -->
     <div style="text-align: center; max-width: 840px; margin: 0 auto 50px;">
-        <div class="badge-ai" style="margin-bottom: 16px;">Node: srv.shamsman.com:2031</div>
+        <div class="badge-ai" style="margin-bottom: 16px;">Node: srv.shamsman.com:2083</div>
         <h1 style="font-size: clamp(34px, 5vw, 52px); font-weight: 800; margin-bottom: 18px;">
             High-Performance <span class="text-gradient-ai">CWP Shared Hosting</span>
         </h1>
@@ -24,11 +24,11 @@
             <div>
                 <div style="font-weight: 700; color: var(--text-main); font-size: 15px;">Primary Production Server: srv.shamsman.com</div>
                 <div style="font-size: 13px; color: var(--text-muted);">
-                    Port: <strong>2031</strong> (SSL Admin/User Panel) • IP: <strong>{{ $cwpServer->ip_address ?? '185.193.64.1' }}</strong> • Region: <strong>us-central1</strong>
+                    Port: <strong>2083</strong> (SSL User Panel) • IP: <strong>{{ $cwpServer->ip_address ?? '185.193.64.1' }}</strong> • Region: <strong>us-central1</strong>
                 </div>
             </div>
         </div>
-        <a href="https://srv.shamsman.com:2031/" target="_blank" class="btn btn-outline btn-sm">
+        <a href="https://srv.shamsman.com:2083/" target="_blank" class="btn btn-outline btn-sm">
             Visit CWP Directly &rarr;
         </a>
     </div>

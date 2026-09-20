@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'AICHost — Next-Gen AI Cloud Hosting & Google VM with CWP')</title>
+    <title>@yield('title', 'AI Cloud Host — Cloud Hosting & Google VM with CWP')</title>
     <meta name="description" content="@yield('meta_description', 'High-performance AI Cloud Hosting, automated CWP shared hosting, and custom Google Cloud Compute Engine VPS with instant domain registration.')">
     
     <script>
@@ -555,7 +555,7 @@
             <div class="container nav-inner">
                 <a href="{{ route('home') }}" class="brand-logo">
                     <div class="brand-icon">⚡</div>
-                    <span>AIC<span style="color: var(--accent-cyan);">Host</span></span>
+                    <span>AI Cloud <span style="color: var(--accent-cyan);">Host</span></span>
                 </a>
 
                 <ul class="nav-links">
@@ -639,7 +639,7 @@
                 <div>
                     <a href="{{ route('home') }}" class="brand-logo" style="margin-bottom: 16px;">
                         <div class="brand-icon">⚡</div>
-                        <span>AIC<span style="color: var(--accent-cyan);">Host</span></span>
+                        <span>AI Cloud <span style="color: var(--accent-cyan);">Host</span></span>
                     </a>
                     <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; max-width: 320px;">
                         Enterprise Cloud Hosting powered by Google Cloud Platform and CentOS Web Panel. Ready for high-velocity web apps, AI model inference, and domain portfolios.
@@ -657,7 +657,7 @@
                         <li><a href="{{ route('vps.index') }}">Google Cloud VPS</a></li>
                         <li><a href="{{ route('vps.index') }}">NVIDIA A100 GPU Servers</a></li>
                         <li><a href="{{ route('domains.index') }}">InternetBS Domain Search</a></li>
-                        <li><a href="https://srv.shamsman.com:2031/" target="_blank">CWP Direct Login</a></li>
+                        <li><a href="https://srv.shamsman.com:2083/" target="_blank">CWP Direct Login</a></li>
                     </ul>
                 </div>
 

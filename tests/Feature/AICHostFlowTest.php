@@ -16,8 +16,8 @@ class AICHostFlowTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
-        $response->assertSee('AICHost');
-        $response->assertSee('srv.shamsman.com:2031');
+        $response->assertSee('AI Cloud Host');
+        $response->assertSee('srv.shamsman.com:2083');
     }
 
     public function test_domain_check_api_works(): void
@@ -39,7 +39,7 @@ class AICHostFlowTest extends TestCase
         $response = $this->get('/shared-hosting');
         $response->assertStatus(200);
         $response->assertSee('CWP Shared Hosting');
-        $response->assertSee('srv.shamsman.com:2031');
+        $response->assertSee('srv.shamsman.com:2083');
     }
 
     public function test_vps_hosting_page_renders(): void

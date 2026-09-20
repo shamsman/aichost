@@ -43,7 +43,7 @@
                 <span class="status-dot"></span>
                 <span>srv.shamsman.com</span>
             </div>
-            <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">Port 2031 Online</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 8px;">Port 2083 Online</div>
         </div>
     </div>
 
@@ -90,7 +90,7 @@
                                     1-Click CWP Login
                                 </a>
                             @elseif($svc->vpsInstance)
-                                <a href="https://{{ $svc->vpsInstance->external_ip }}:2031/" target="_blank" class="btn btn-cyan btn-sm">
+                                <a href="https://{{ $svc->vpsInstance->external_ip }}:2083/" target="_blank" class="btn btn-cyan btn-sm">
                                     Open CWP Panel
                                 </a>
                                 <button type="button" class="btn btn-outline btn-sm" onclick="vpsAction('{{ $svc->vpsInstance->id }}', 'restart')">

@@ -14,7 +14,7 @@
             <div>
                 <div class="brand-logo" style="margin-bottom: 8px;">
                     <div class="brand-icon">⚡</div>
-                    <span>AIC<span style="color: var(--accent-cyan);">Host</span></span>
+                    <span>AI Cloud <span style="color: var(--accent-cyan);">Host</span></span>
                 </div>
                 <div style="color: var(--text-muted); font-size: 13px;">Google Cloud Infrastructure • CWP Hosting</div>
             </div>

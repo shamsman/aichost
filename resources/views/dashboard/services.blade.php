@@ -46,7 +46,7 @@
                                 </a>
                             @elseif($svc->vpsInstance)
                                 <a href="{{ $svc->vpsInstance->cwp_url }}" target="_blank" class="btn btn-cyan btn-sm">
-                                    Open CWP ({{ $svc->vpsInstance->external_ip }}:2031)
+                                    Open CWP ({{ $svc->vpsInstance->external_ip }}:2083)
                                 </a>
                             @endif
                         </div>
@@ -55,7 +55,7 @@
                     <!-- Technical Credentials Box -->
                     <div style="background: var(--surface-hover); border: 1px solid var(--card-border); border-radius: 10px; padding: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; font-size: 13px;">
                         @if($svc->hostingAccount)
-                            <div><span style="color: var(--text-muted);">CWP Server:</span> <strong style="color: var(--text-main);">srv.shamsman.com:2031</strong></div>
+                            <div><span style="color: var(--text-muted);">CWP Server:</span> <strong style="color: var(--text-main);">srv.shamsman.com:2083</strong></div>
                             <div><span style="color: var(--text-muted);">CWP Username:</span> <code style="color: var(--accent-cyan); font-weight: 600;">{{ $svc->hostingAccount->cwp_username }}</code></div>
                             <div><span style="color: var(--text-muted);">Assigned IP:</span> <strong style="color: var(--text-main);">{{ $svc->hostingAccount->ip_address }}</strong></div>
                             <div><span style="color: var(--text-muted);">Package:</span> <strong style="color: var(--text-main);">{{ ucfirst($svc->hostingAccount->package_name) }}</strong></div>

@@ -20,7 +20,7 @@ final class CwpService implements HostingPanelInterface
         ?string $apiUrl = null,
         ?string $apiKey = null,
     ) {
-        $this->apiUrl = rtrim($apiUrl ?? (string) env('CWP_API_URL', 'https://srv.shamsman.com:2031/api/'), '/');
+        $this->apiUrl = rtrim($apiUrl ?? (string) env('CWP_API_URL', 'https://srv.shamsman.com:2083/api/'), '/');
         $this->apiKey = trim($apiKey ?? (string) env('CWP_API_KEY', ''));
 
         // Mock mode when CWP_API_KEY is not yet populated
@@ -42,14 +42,14 @@ final class CwpService implements HostingPanelInterface
         $username = $this->sanitizeUsername($username);
 
         if ($this->mock) {
-            $cwpLoginUrl = "https://srv.shamsman.com:2031/cpanel/?user=" . urlencode($username);
+            $cwpLoginUrl = "https://srv.shamsman.com:2083/cpanel/?user=" . urlencode($username);
 
             return new CreateAccountResult(
                 success:         true,
                 username:        $username,
                 domain:          $domain,
                 package:         $package,
-                message:         'Account provisioned on CWP (srv.shamsman.com:2031 - Mock Mode)',
+                message:         'Account provisioned on CWP (srv.shamsman.com:2083 - Mock Mode)',
                 loginUrl:        $cwpLoginUrl,
                 remoteAccountId: crc32($username) % 100000,
                 mock:            true,
@@ -76,7 +76,7 @@ final class CwpService implements HostingPanelInterface
             $data = $response->json() ?? [];
             $isSuccess = ($data['status'] ?? '') === 'OK' || ($data['result'] ?? '') === 'success';
 
-            $cwpLoginUrl = "https://srv.shamsman.com:2031/cpanel/?user=" . urlencode($username);
+            $cwpLoginUrl = "https://srv.shamsman.com:2083/cpanel/?user=" . urlencode($username);
 
             return new CreateAccountResult(
                 success:         $isSuccess,
@@ -148,7 +148,7 @@ final class CwpService implements HostingPanelInterface
     public function generateSsoUrl(string $username): SsoUrlResult
     {
         $username = $this->sanitizeUsername($username);
-        $loginUrl = "https://srv.shamsman.com:2031/cpanel/?user=" . urlencode($username);
+        $loginUrl = "https://srv.shamsman.com:2083/cpanel/?user=" . urlencode($username);
 
         return new SsoUrlResult(
             success:  true,
