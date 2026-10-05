@@ -7,15 +7,61 @@
     <!-- Welcome Header -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
         <div>
-            <h1 style="font-size: 28px; font-weight: 800; color: var(--text-main);">Welcome back, {{ $user->name }}!</h1>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+                <h1 style="font-size: 28px; font-weight: 800; color: var(--text-main);">Welcome back, {{ $user->name }}!</h1>
+                @if($user->isAdmin())
+                    <span class="badge-ai" style="background: rgba(99, 102, 241, 0.15); color: var(--primary); border-color: rgba(99, 102, 241, 0.3);">
+                        Super Admin
+                    </span>
+                @endif
+            </div>
             <p style="color: var(--text-muted); font-size: 14px;">Manage your Google Cloud infrastructure, CWP accounts, and registered domains.</p>
         </div>
-        <div style="display: flex; gap: 12px;">
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            @if($user->isAdmin())
+                <a href="{{ route('admin.invoices.create') }}" class="btn btn-primary btn-sm" style="font-weight: 700; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);">
+                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                    + Issue Invoice
+                </a>
+                <a href="{{ route('admin.invoices.index') }}" class="btn btn-outline btn-sm">
+                    Manage Invoices
+                </a>
+            @endif
             <a href="{{ route('hosting.index') }}" class="btn btn-outline btn-sm">+ New CWP Account</a>
             <a href="{{ route('vps.index') }}" class="btn btn-cyan btn-sm">+ Launch Google VM</a>
             <a href="{{ route('domains.index') }}" class="btn btn-primary btn-sm">+ Register Domain</a>
         </div>
     </div>
+
+    @if($user->isAdmin())
+        <!-- Super Admin Invoicing Control Module -->
+        <div class="glass-panel" style="padding: 24px; margin-bottom: 32px; background: linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(6, 182, 212, 0.06) 100%); border: 1px solid rgba(99, 102, 241, 0.25);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                <div style="display: flex; align-items: center; gap: 14px;">
+                    <div style="width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent-cyan) 100%); display: flex; align-items: center; justify-content: center; font-size: 22px; color: #fff; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);">
+                        💳
+                    </div>
+                    <div>
+                        <h3 style="font-size: 17px; font-weight: 800; color: var(--text-main); margin-bottom: 2px;">
+                            Admin Billing & Invoice Issuance Module
+                        </h3>
+                        <p style="color: var(--text-muted); font-size: 13px;">
+                            Create custom itemized invoices, assign billing items to clients, track unpaid balances, and generate PDF receipts.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="{{ route('admin.invoices.create') }}" class="btn btn-primary btn-sm" style="font-weight: 700;">
+                        + Issue New Invoice
+                    </a>
+                    <a href="{{ route('admin.invoices.index') }}" class="btn btn-outline btn-sm">
+                        All Client Invoices &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    @endif
 
     <!-- Stat Metric Cards -->
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 36px;">
@@ -149,7 +195,7 @@
                             </div>
                             <div style="text-align: right;">
                                 <strong style="color: var(--text-main);">${{ number_format($inv->total, 2) }}</strong>
-                                <span style="font-size: 11px; color: var(--accent-emerald); display: block; font-weight: 700;">PAID</span>
+                                <span style="font-size: 11px; color: var(--accent-emerald); display: block; font-weight: 700;">{{ strtoupper($inv->status) }}</span>
                             </div>
                         </div>
                     @endforeach

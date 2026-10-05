@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\InvoiceController as AdminInvoiceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartCheckoutController;
 use App\Http\Controllers\DashboardController;
@@ -73,6 +74,24 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     Route::get('/domains', [DashboardController::class, 'domains'])->name('domains');
     Route::get('/invoices', [DashboardController::class, 'invoices'])->name('invoices');
     Route::get('/invoices/{invoice}', [DashboardController::class, 'invoiceShow'])->name('invoices.show');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Super Admin Invoicing & Management Module (Protected)
+|--------------------------------------------------------------------------
+*/
+Route::middleware('auth')->prefix('admin/invoices')->name('admin.invoices.')->group(function () {
+    Route::get('/', [AdminInvoiceController::class, 'index'])->name('index');
+    Route::get('/create', [AdminInvoiceController::class, 'create'])->name('create');
+    Route::post('/', [AdminInvoiceController::class, 'store'])->name('store');
+    Route::get('/{invoice}', [AdminInvoiceController::class, 'show'])->name('show');
+    Route::get('/{invoice}/edit', [AdminInvoiceController::class, 'edit'])->name('edit');
+    Route::put('/{invoice}', [AdminInvoiceController::class, 'update'])->name('update');
+    Route::post('/{invoice}/mark-paid', [AdminInvoiceController::class, 'markPaid'])->name('mark-paid');
+    Route::post('/{invoice}/cancel', [AdminInvoiceController::class, 'cancel'])->name('cancel');
+    Route::post('/{invoice}/send', [AdminInvoiceController::class, 'sendNotification'])->name('send');
+    Route::delete('/{invoice}', [AdminInvoiceController::class, 'destroy'])->name('destroy');
 });
 
 /*
