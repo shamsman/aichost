@@ -27,10 +27,10 @@ class DatabaseSeeder extends Seeder
     protected function seedAdminUser(): void
     {
         User::updateOrCreate(
-            ['email' => 'admin@aichost.com'],
+            ['email' => 'shamsman1@gmail.com'],
             [
-                'name'     => 'AICHost Admin',
-                'password' => Hash::make('password123'),
+                'name'     => 'Super Admin',
+                'password' => Hash::make('271119800'),
                 'role'     => 'admin',
                 'status'   => 'active',
                 'balance'  => 1000.00,

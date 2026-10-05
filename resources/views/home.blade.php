@@ -13,7 +13,7 @@
         </div>
 
         <h1 style="font-size: clamp(38px, 6vw, 68px); font-weight: 800; line-height: 1.1; margin-bottom: 24px; max-width: 960px; margin-left: auto; margin-right: auto;">
-            Enterprise <span class="text-gradient-ai">AI Cloud Hosting</span> Built on Google Infrastructure
+            Enterprise <span class="text-gradient-ai">AI Cloud Hosting</span>
         </h1>
 
         <p style="font-size: clamp(16px, 2vw, 20px); color: var(--text-muted); max-width: 680px; margin: 0 auto 40px; line-height: 1.6;">

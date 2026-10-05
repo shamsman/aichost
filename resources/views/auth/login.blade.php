@@ -21,12 +21,12 @@
             @csrf
             <div style="margin-bottom: 20px;">
                 <label style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">Email Address</label>
-                <input type="email" name="email" value="{{ old('email', 'admin@aichost.com') }}" style="width: 100%; height: 48px;" placeholder="name@company.com" required autofocus>
+                <input type="email" name="email" value="{{ old('email', 'shamsman1@gmail.com') }}" style="width: 100%; height: 48px;" placeholder="name@company.com" required autofocus>
             </div>
 
             <div style="margin-bottom: 24px;">
                 <label style="display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;">Password</label>
-                <input type="password" name="password" value="password123" style="width: 100%; height: 48px;" placeholder="••••••••" required>
+                <input type="password" name="password" value="271119800" style="width: 100%; height: 48px;" placeholder="••••••••" required>
             </div>
 
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; font-size: 13px;">
