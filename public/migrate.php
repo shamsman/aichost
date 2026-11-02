@@ -18,28 +18,24 @@ $app = require_once __DIR__ . '/../bootstrap/app.php';
 // Bootstrap console kernel
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 
-$expectedToken = env('MIGRATE_SECRET', 'aichost_secure_migrate_token_2026');
+$expectedToken = 'aic271119800';
 $providedToken = $_GET['token'] ?? $_POST['token'] ?? ($_SERVER['HTTP_X_MIGRATE_TOKEN'] ?? '');
 
 $wantsJson = (isset($_GET['format']) && $_GET['format'] === 'json') || 
              (isset($_SERVER['HTTP_ACCEPT']) && str_contains($_SERVER['HTTP_ACCEPT'], 'application/json'));
 
-$authenticated = !empty($expectedToken) && !empty($providedToken) && hash_equals($expectedToken, $providedToken);
+$authenticated = !empty($providedToken) && hash_equals($expectedToken, (string) $providedToken);
 
 $action = $_GET['action'] ?? $_POST['action'] ?? 'status';
 $output = '';
 $status = 'idle';
 $error = null;
 
-if ($authenticated && in_array($action, ['migrate', 'seed', 'status'])) {
+if ($authenticated && in_array($action, ['migrate', 'status'], true)) {
     try {
         ob_start();
         if ($action === 'migrate') {
             $kernel->call('migrate', ['--force' => true]);
-            $output = \Illuminate\Support\Facades\Artisan::output();
-            $status = 'success';
-        } elseif ($action === 'seed') {
-            $kernel->call('db:seed', ['--force' => true]);
             $output = \Illuminate\Support\Facades\Artisan::output();
             $status = 'success';
         } elseif ($action === 'status') {
@@ -224,7 +220,6 @@ if ($wantsJson) {
 
             <div class="button-group">
                 <button type="submit" name="action" value="migrate" class="btn btn-primary">Run Migrations (--force)</button>
-                <button type="submit" name="action" value="seed" class="btn btn-secondary">Seed Database</button>
                 <button type="submit" name="action" value="status" class="btn btn-secondary">Check Migration Status</button>
             </div>
         </form>
