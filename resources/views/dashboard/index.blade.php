@@ -19,12 +19,14 @@
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
             @if($user->isAdmin())
-                <a href="{{ route('admin.invoices.create') }}" class="btn btn-primary btn-sm" style="font-weight: 700; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);">
-                    <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-                    + Issue Invoice
+                <a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-sm" style="font-weight: 700; box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);">
+                    ⚡ Super Admin Dashboard
+                </a>
+                <a href="{{ route('admin.users.index') }}" class="btn btn-outline btn-sm" style="font-weight: 700;">
+                    👥 Manage Users
                 </a>
                 <a href="{{ route('admin.invoices.index') }}" class="btn btn-outline btn-sm">
-                    Manage Invoices
+                    📑 Manage Invoices
                 </a>
             @endif
             <a href="{{ route('hosting.index') }}" class="btn btn-outline btn-sm">+ New CWP Account</a>
@@ -51,12 +53,18 @@
                     </div>
                 </div>
 
-                <div style="display: flex; gap: 10px; align-items: center;">
-                    <a href="{{ route('admin.invoices.create') }}" class="btn btn-primary btn-sm" style="font-weight: 700;">
+                <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-primary btn-sm" style="font-weight: 700;">
+                        ⚡ Super Admin Panel
+                    </a>
+                    <a href="{{ route('admin.users.index') }}" class="btn btn-outline btn-sm" style="font-weight: 700;">
+                        👥 Users (Add / Edit / Delete)
+                    </a>
+                    <a href="{{ route('admin.invoices.create') }}" class="btn btn-cyan btn-sm" style="font-weight: 700;">
                         + Issue New Invoice
                     </a>
                     <a href="{{ route('admin.invoices.index') }}" class="btn btn-outline btn-sm">
-                        All Client Invoices &rarr;
+                        All Invoices &rarr;
                     </a>
                 </div>
             </div>

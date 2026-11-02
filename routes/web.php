@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\InvoiceController as AdminInvoiceController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartCheckoutController;
 use App\Http\Controllers\DashboardController;
@@ -78,20 +80,34 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
 
 /*
 |--------------------------------------------------------------------------
-| Super Admin Invoicing & Management Module (Protected)
+| Super Admin Dashboard, Users & Invoicing Module (Protected)
 |--------------------------------------------------------------------------
 */
-Route::middleware('auth')->prefix('admin/invoices')->name('admin.invoices.')->group(function () {
-    Route::get('/', [AdminInvoiceController::class, 'index'])->name('index');
-    Route::get('/create', [AdminInvoiceController::class, 'create'])->name('create');
-    Route::post('/', [AdminInvoiceController::class, 'store'])->name('store');
-    Route::get('/{invoice}', [AdminInvoiceController::class, 'show'])->name('show');
-    Route::get('/{invoice}/edit', [AdminInvoiceController::class, 'edit'])->name('edit');
-    Route::put('/{invoice}', [AdminInvoiceController::class, 'update'])->name('update');
-    Route::post('/{invoice}/mark-paid', [AdminInvoiceController::class, 'markPaid'])->name('mark-paid');
-    Route::post('/{invoice}/cancel', [AdminInvoiceController::class, 'cancel'])->name('cancel');
-    Route::post('/{invoice}/send', [AdminInvoiceController::class, 'sendNotification'])->name('send');
-    Route::delete('/{invoice}', [AdminInvoiceController::class, 'destroy'])->name('destroy');
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::get('/', [AdminUserController::class, 'index'])->name('index');
+        Route::get('/create', [AdminUserController::class, 'create'])->name('create');
+        Route::post('/', [AdminUserController::class, 'store'])->name('store');
+        Route::get('/{user}/edit', [AdminUserController::class, 'edit'])->name('edit');
+        Route::put('/{user}', [AdminUserController::class, 'update'])->name('update');
+        Route::post('/{user}/toggle-status', [AdminUserController::class, 'toggleStatus'])->name('toggle-status');
+        Route::delete('/{user}', [AdminUserController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('invoices')->name('invoices.')->group(function () {
+        Route::get('/', [AdminInvoiceController::class, 'index'])->name('index');
+        Route::get('/create', [AdminInvoiceController::class, 'create'])->name('create');
+        Route::post('/', [AdminInvoiceController::class, 'store'])->name('store');
+        Route::get('/{invoice}', [AdminInvoiceController::class, 'show'])->name('show');
+        Route::get('/{invoice}/edit', [AdminInvoiceController::class, 'edit'])->name('edit');
+        Route::put('/{invoice}', [AdminInvoiceController::class, 'update'])->name('update');
+        Route::post('/{invoice}/mark-paid', [AdminInvoiceController::class, 'markPaid'])->name('mark-paid');
+        Route::post('/{invoice}/cancel', [AdminInvoiceController::class, 'cancel'])->name('cancel');
+        Route::post('/{invoice}/send', [AdminInvoiceController::class, 'sendNotification'])->name('send');
+        Route::delete('/{invoice}', [AdminInvoiceController::class, 'destroy'])->name('destroy');
+    });
 });
 
 /*
